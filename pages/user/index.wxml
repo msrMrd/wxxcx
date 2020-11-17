@@ -1,0 +1,5 @@
+<!--pages/user/index.wxml-->
+<!-- <text>pages/user/index.wxml</text> -->
+<view>
+  <button type="primary" bindtap="ALogin">登陆</button>
+</view>

@@ -5,6 +5,7 @@ const app = getApp()
 Page({
   data: {
     motto: 'Hello MsrLi',
+    name: '嘻嘻',   //直接可以写上去
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -16,6 +17,31 @@ Page({
     })
   },
   onLoad: function () {
+let _this=(this);    //声明一个对象
+    //发起网络请求
+wx.request({
+    url:"http://www.2004shop.com/weba",   //api  本地项目
+    data:{
+      x:'xxx',
+      y:'yyy'
+    },
+    header:{
+      'content-type':'application/json"'  //默认值
+    },
+    success(res){
+        console.log(res);
+      _this.setData({
+        jj:res.data.tel,
+        kk:res.data.name,
+        aa:res.data.sex
+      });
+      }
+})
+
+
+
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -48,7 +74,9 @@ Page({
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      hasUserInfo: true,
+      names:"咪咪",
     })
   }
 })
+ 

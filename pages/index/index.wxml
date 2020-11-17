@@ -8,6 +8,12 @@
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <!-- <text class="user-motto">{{names}}</text> -->
+    <text class="user-motto">{{kk}}</text>
+    <text class="user-motto">{{aa}}</text>
+    <text class="user-motto">{{jj}}</text>
+    <text class="user-motto">{{name}}</text>
+    <text class="user-motto">{{names}}</text>
+    
   </view>
 </view>

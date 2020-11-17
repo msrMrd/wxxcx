@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "goods/good",
     "pages/goods/god",
-    "pages/goods/good"
+    "pages/goods/good",
+    "pages/user/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,5 +14,38 @@
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/img/home.png",
+        "selectedIconPath":"pages/img/home-select.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "购物车",
+        "iconPath": "pages/img/shopcart.png",
+        "selectedIconPath":"pages/img/shopcart-select.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "订单",
+        "iconPath": "pages/img/order.png",
+        "selectedIconPath":"pages/img/order-select.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "pages/img/my.png",
+        "selectedIconPath":"pages/img/my-select.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
 }
