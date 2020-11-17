@@ -37,6 +37,12 @@
       },
       {
         "pagePath": "pages/user/index",
+        "text": "详情",
+        "iconPath": "pages/img/ad.jpg",
+        "selectedIconPath":"pages/img/dasdsad.jpg"
+      },
+      {
+        "pagePath": "pages/user/index",
         "text": "我的",
         "iconPath": "pages/img/my.png",
         "selectedIconPath":"pages/img/my-select.png"

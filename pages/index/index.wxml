@@ -14,6 +14,11 @@
     <text class="user-motto">{{jj}}</text>
     <text class="user-motto">{{name}}</text>
     <text class="user-motto">{{names}}</text>
-    
+  </view>
+  <view wx:for="{{goods}}" wx:key="{{unque}}">
+    <text class="user-motto">商品：{{goods[index].goods_name}}</text>
+    <text class="user-motto">商品价格：{{goods[index].goods_price}}</text>
+    <text class="user-motto">商品数量:{{goods[index].goods_num}}</text>
   </view>
 </view>
+

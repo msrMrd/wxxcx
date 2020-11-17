@@ -34,14 +34,21 @@ wx.request({
         jj:res.data.tel,
         kk:res.data.name,
         aa:res.data.sex
-      });
+      })
       }
+}),
+wx.request({
+  url:"http://www.2004shop.com/viewa",   //api  本地项目
+  success:function(res){
+      console.log(res);
+    _this.setData({
+      goods:res.data
+    })
+    },
+    fail:function(){
+      console.log("请求失败");
+    }
 })
-
-
-
-
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
