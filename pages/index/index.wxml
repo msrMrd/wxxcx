@@ -1,24 +1,42 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <!-- 轮播图  开始 -->
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
+      <block wx:for="{{movies}}" wx:for-index="index">  
+        <swiper-item>  
+          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
+        </swiper-item>  
+      </block>  
+    </swiper>
+      <!-- 轮播图  结束 -->
+      <!-- 导航   开始 -->
+      <view class='classify_list'>
+        <ul>
+          <li class="classify">首页</li>
+          <b wx:for="{{cate}}">
+          <li class="classify">{{cate[index].cate_name}}</li>
+          </b>
+        </ul>
+    
+   </view>
+      <!-- 导航   失败 -->
+
+  <!-- 商品  开始 -->
+  <view class='list'>
+  <block wx:for='{{goods}}' wx:key='unque' wx:for-item="item">
+  <view class="list_item"  bindtap="getdetails" id="{{item.goods_id}}">
+      <navigator url='details?id={{item.goods_id}}'>
+      <view class='img'>
+        <image src="{{imghref}}{{item.goods_img}}"  mode="scaleToFill"/>
+      </view>
+      <view class='info'>
+        <view class='name'>{{item.goods_name}}</view>
+        <view class='price'>￥：{{item.goods_price}}</view>
+        <view class='num'>销量：{{item.goods_num}}</view>
+      </view>
+       </navigator>
+      <view class='clear'></view>
   </view>
-  <view class="usermotto">
-    <!-- <text class="user-motto">{{names}}</text> -->
-    <text class="user-motto">{{kk}}</text>
-    <text class="user-motto">{{aa}}</text>
-    <text class="user-motto">{{jj}}</text>
-    <text class="user-motto">{{name}}</text>
-    <text class="user-motto">{{names}}</text>
-  </view>
-  <view wx:for="{{goods}}" wx:key="{{unque}}">
-    <text class="user-motto">商品：{{goods[index].goods_name}}</text>
-    <text class="user-motto">商品价格：{{goods[index].goods_price}}</text>
-    <text class="user-motto">商品数量:{{goods[index].goods_num}}</text>
-  </view>
+  </block>
 </view>
+  <!-- 商品 结束 -->
 

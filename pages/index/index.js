@@ -4,12 +4,28 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello MsrLi',
-    name: '嘻嘻',   //直接可以写上去
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    // motto: 'Hello MsrLi',
+    // name: '嘻嘻',   //直接可以写上去
+    // userInfo: {},
+    // hasUserInfo: false,
+    // canIUse: wx.canIUse('button.open-type.getUserInfo'),
+      movies:[  
+      {url:'/pages/img/yaioda3.jpg'} ,    
+      {url:'/pages/img/dasdsad.jpg'} ,  
+      {url:'/pages/img/dsad11.jpeg'} ,  
+      {url:'/pages/img/dsahhda223.jpg'}   
+      ]  
   },
+  getdetails:function(s)
+{
+  //获取被点击的商品 id
+  let _this=(this);
+  console.log(s);
+  //跳转页面
+  wx.redirectTo({
+    url: '/pages/details/details?goods_id='+s.currentTarget.id
+  });
+},
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -19,24 +35,24 @@ Page({
   onLoad: function () {
 let _this=(this);    //声明一个对象
     //发起网络请求
-wx.request({
-    url:"http://www.2004shop.com/weba",   //api  本地项目
-    data:{
-      x:'xxx',
-      y:'yyy'
-    },
-    header:{
-      'content-type':'application/json"'  //默认值
-    },
-    success(res){
-        console.log(res);
-      _this.setData({
-        jj:res.data.tel,
-        kk:res.data.name,
-        aa:res.data.sex
-      })
-      }
-}),
+// wx.request({
+    // url:"http://www.2004shop.com/weba",   //api  本地项目
+    // data:{
+    //   x:'xxx',
+    //   y:'yyy'
+    // },
+    // header:{
+    //   'content-type':'application/json"'  //默认值
+    // },
+//     success(res){
+//         console.log(res);
+//       _this.setData({
+//         jj:res.data.tel,
+//         kk:res.data.name,
+//         aa:res.data.sex
+//       })
+//       }
+// }),
 wx.request({
   url:"http://www.2004shop.com/viewa",   //api  本地项目
   success:function(res){
@@ -48,6 +64,18 @@ wx.request({
     fail:function(){
       console.log("请求失败");
     }
+}),
+wx.request({
+  url:"http://www.2004shop.com/category",
+  success:function(e){
+    console.log(e);
+    _this.setData({
+      cate:e.data.data
+    })
+  },
+  fail:function(){
+    console.log("请求失败");
+  }
 })
     if (app.globalData.userInfo) {
       this.setData({
@@ -76,14 +104,14 @@ wx.request({
       })
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true,
-      names:"咪咪",
-    })
-  }
+  // getUserInfo: function(e) {
+  //   console.log(e)
+  //   app.globalData.userInfo = e.detail.userInfo
+  //   this.setData({
+  //     userInfo: e.detail.userInfo,
+  //     hasUserInfo: true,
+  //     names:"咪咪",
+  //   })
+  // }
 })
  
